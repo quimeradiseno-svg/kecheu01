@@ -10,7 +10,7 @@ const photos = [
   ['place-forest-road', join('pasiajes', 'IMG_7355.JPEG')],
   ['place-stream', join('pasiajes', 'IMG_5349.JPEG')],
   ['place-lake-wide', join('pasiajes', 'IMG_8786.JPEG')],
-  ['place-kecheu-home', join('CabañasPara4_afuera', 'IMG_6601.JPEG')],
+  ['place-kecheu-home', join('..', '..', 'kecheu_web_GPT', 'fotos kecheu', 'cabañas', 'IMG_6601 copia.jpg')],
 ];
 
 for (const [name, filename] of photos) {

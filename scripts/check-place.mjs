@@ -41,6 +41,7 @@ assert.ok(/@media \(max-width: 760px\)[\s\S]*?\.section \{[\s\S]*?height: auto !
 assert.ok(!/perspective:|rotate\(|rotate3d\(|animation:/.test(css));
 assert.ok(css.includes('grid-template-columns: 48vw 34vw'));
 assert.ok(css.includes('height: min(72svh, 710px)'));
+assert.equal((await import('../app/image-sizes.json', { with: { type: 'json' } })).default['place-kecheu-home'].height, 1761);
 
 const baseline = '87dc8f2e072e692ee7d147e8a0b4a087e2516992';
 const original = path => execFileSync('git', ['-c', `safe.directory=${process.cwd().replaceAll('\\','/')}`, 'show', `${baseline}:${path}`], { encoding: 'utf8' });
