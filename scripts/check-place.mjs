@@ -12,7 +12,7 @@ for (const text of [
   'A 3 km,<br/><em>el lago.</em>',
   'Acá, hasta los motores<br/><em>se quedan afuera.</em>',
   'Y alrededor,<br/><em>montaña.</em>',
-  'Y en algún lugar,<br/>ahí en el medio,<br/><em>estamos nosotros.</em>',
+  'Y ahí en el medio,<br/><em>estamos nosotros.</em>',
 ]) assert.ok(component.includes(text), 'Missing text: ' + text);
 
 const names = [...component.matchAll(/name="([^"]+)"/g)].map(match => match[1]);

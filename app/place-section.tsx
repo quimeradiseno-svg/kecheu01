@@ -149,7 +149,7 @@ export function PlaceSection({ paused }: { paused: boolean }) {
             alt="Kecheu integrado en el valle, al pie de las montañas de Epuyén"
             className={styles.cabinPhoto}
           />
-          <p>Y en algún lugar,<br/>ahí en el medio,<br/><em>estamos nosotros.</em></p>
+          <p>Y ahí en el medio,<br/><em>estamos nosotros.</em></p>
         </article>
       </div>
       <div className={styles.progress} aria-hidden="true"><span/></div>
