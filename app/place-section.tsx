@@ -145,8 +145,8 @@ export function PlaceSection({ paused }: { paused: boolean }) {
 
         <article className={styles.finalMoment}>
           <LandscapePhoto
-            name="cabin-small"
-            alt="La cabaña pequeña de Kecheu, entre flores y montañas"
+            name="place-kecheu-home"
+            alt="Kecheu integrado en el valle, al pie de las montañas de Epuyén"
             className={styles.cabinPhoto}
           />
           <p>Y en algún lugar,<br/>ahí en el medio,<br/><em>estamos nosotros.</em></p>

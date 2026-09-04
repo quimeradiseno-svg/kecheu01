@@ -16,7 +16,7 @@ for (const text of [
 ]) assert.ok(component.includes(text), 'Missing text: ' + text);
 
 const names = [...component.matchAll(/name="([^"]+)"/g)].map(match => match[1]);
-assert.deepEqual(names, ['lake', 'river', 'place-forest-road', 'place-stream', 'place-lake-wide', 'new-mountains', 'cabin-small']);
+assert.deepEqual(names, ['lake', 'river', 'place-forest-road', 'place-stream', 'place-lake-wide', 'new-mountains', 'place-kecheu-home']);
 assert.ok(component.includes('data-place-horizontal="7"'));
 assert.ok(component.includes("canvas.scrollWidth - window.innerWidth"));
 assert.ok(component.includes("-rect.top / travel"));
@@ -39,6 +39,8 @@ for (const rule of [
 ]) assert.ok(css.includes(rule), 'Missing CSS behavior: ' + rule);
 assert.ok(/@media \(max-width: 760px\)[\s\S]*?\.section \{[\s\S]*?height: auto !important/.test(css));
 assert.ok(!/perspective:|rotate\(|rotate3d\(|animation:/.test(css));
+assert.ok(css.includes('grid-template-columns: 48vw 34vw'));
+assert.ok(css.includes('height: min(72svh, 710px)'));
 
 const baseline = '87dc8f2e072e692ee7d147e8a0b4a087e2516992';
 const original = path => execFileSync('git', ['-c', `safe.directory=${process.cwd().replaceAll('\\','/')}`, 'show', `${baseline}:${path}`], { encoding: 'utf8' });

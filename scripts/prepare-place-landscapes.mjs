@@ -3,13 +3,14 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const source = join(root, '..', 'fotos kecheu', 'pasiajes');
+const source = join(root, '..', 'fotos kecheu');
 const output = join(root, 'public', 'images');
 
 const photos = [
-  ['place-forest-road', 'IMG_7355.JPEG'],
-  ['place-stream', 'IMG_5349.JPEG'],
-  ['place-lake-wide', 'IMG_8786.JPEG'],
+  ['place-forest-road', join('pasiajes', 'IMG_7355.JPEG')],
+  ['place-stream', join('pasiajes', 'IMG_5349.JPEG')],
+  ['place-lake-wide', join('pasiajes', 'IMG_8786.JPEG')],
+  ['place-kecheu-home', join('CabañasPara4_afuera', 'IMG_6601.JPEG')],
 ];
 
 for (const [name, filename] of photos) {
@@ -26,4 +27,4 @@ for (const [name, filename] of photos) {
     .toFile(join(output, name + '-small.webp'));
 }
 
-console.log('Prepared 3 landscape photos in two responsive sizes.');
+console.log('Prepared 4 landscape photos in two responsive sizes.');
