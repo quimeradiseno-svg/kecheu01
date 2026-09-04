@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import { houseMomentIndex, houseMoments } from '../app/house-sequence.ts';
 
-assert.deepEqual(houseMoments.map(moment => moment.image), ['house-building', 'house-beams', 'new-family-building', 'house-inside']);
+assert.deepEqual(houseMoments.map(moment => moment.image), ['house-building', 'house-beams', 'house-almost-finished', 'house-inside']);
 assert.deepEqual(houseMoments.map(moment => moment.label), ['La estructura', 'El entramado', 'El barro', 'La casa']);
 for (const [progress, expected] of [[-1,0],[0,0],[.249,0],[.25,1],[.499,1],[.5,2],[.749,2],[.75,3],[1,3],[2,3],[NaN,0]]) {
   assert.equal(houseMomentIndex(progress), expected, `Progress ${progress}`);
@@ -10,6 +10,8 @@ for (const [progress, expected] of [[-1,0],[0,0],[.249,0],[.25,1],[.499,1],[.5,2
 for (const moment of houseMoments) {
   for (const suffix of ['.webp','-small.webp']) assert.ok((await fs.stat(`public/images/${moment.image}${suffix}`)).size > 0);
 }
+const manifest = JSON.parse(await fs.readFile('design-references/image-manifest.json', 'utf8'));
+assert.equal(manifest.find(row => row.name === 'house-almost-finished')?.source, 'fotos kecheu/CASA KECHEU/IMG_8351.JPEG');
 
 const component = await fs.readFile('app/house-story.tsx', 'utf8');
 const css = await fs.readFile('app/house-story.module.css', 'utf8');
