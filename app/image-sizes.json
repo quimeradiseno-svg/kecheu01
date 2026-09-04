@@ -1,0 +1,187 @@
+{
+  "hero": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "construction": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "wall": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "cabin-one": {
+    "width": 1440,
+    "height": 953,
+    "smallWidth": 800
+  },
+  "cabin-one-kitchen": {
+    "width": 1440,
+    "height": 953,
+    "smallWidth": 800
+  },
+  "cabin-one-bedroom": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "cabin-one-light": {
+    "width": 1440,
+    "height": 1800,
+    "smallWidth": 800
+  },
+  "cabin-two": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "cabin-two-living": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "cabin-two-window": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "cabin-two-stairs": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "cabin-small": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "cabin-small-inside": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "cabin-small-window": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "cabin-small-bath": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "house-building": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "house-beams": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "house-inside": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "family": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "workshop": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "ceramic-switch": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "window": {
+    "width": 1125,
+    "height": 2000,
+    "smallWidth": 562
+  },
+  "real-clay": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "harvest": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "garden": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "carrots": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "bread": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "river": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "lake": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "pause": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "house-pond": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
+  "hands-temporary": {
+    "width": 1536,
+    "height": 1024,
+    "smallWidth": 800
+  },
+  "clay-temporary": {
+    "width": 1536,
+    "height": 1024,
+    "smallWidth": 800
+  },
+  "new-exterior": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "new-family-building": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "new-living": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "new-mountains": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  }
+}

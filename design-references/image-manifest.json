@@ -196,5 +196,25 @@
     "generated": true,
     "source": "design-references/clay-temporary.png",
     "replacement": "Reemplazar con fotografía real y cambiar generated a false en app/content.ts."
+  },
+  {
+    "name": "new-exterior",
+    "source": "fotos kecheu/nueva/IMG_6733.JPEG",
+    "generated": false
+  },
+  {
+    "name": "new-family-building",
+    "source": "fotos kecheu/nueva/IMG_5091.JPEG",
+    "generated": false
+  },
+  {
+    "name": "new-living",
+    "source": "fotos kecheu/nueva/IMG_6620.JPEG",
+    "generated": false
+  },
+  {
+    "name": "new-mountains",
+    "source": "fotos kecheu/nueva/IMG_4291.JPEG",
+    "generated": false
   }
 ]

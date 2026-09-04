@@ -5,6 +5,9 @@ import {cabins,photos,contact} from '../app/content.ts';
 const manifest=JSON.parse(await fs.readFile('design-references/image-manifest.json','utf8'));
 const page=await fs.readFile('app/page.tsx','utf8');
 const css=await fs.readFile('app/globals.css','utf8');
+const imageSizes=JSON.parse(await fs.readFile('app/image-sizes.json','utf8'));
+for(const row of manifest)assert.ok(imageSizes[row.name]?.width>0&&imageSizes[row.name]?.height>0);
+assert.ok(page.includes('width={size.width} height={size.height}'));
 assert.equal(cabins.length,3);
 assert.deepEqual(cabins.map(c=>c.capacity),['4 personas','4 personas','2 personas']);
 for(const [index,c] of cabins.entries()){
@@ -13,12 +16,30 @@ for(const [index,c] of cabins.entries()){
     assert.ok(p.alt.length>15);
     const source=manifest.find(m=>m.name===p.name);
     assert.ok(source);
-    assert.ok(source.source.includes(index===0?'cabañaspara4_01':index===1?'cabañaspara4_02':'cabañaPara2'));
+    if(p.name==='new-exterior'){
+      assert.ok(index<2);
+      assert.equal(source.source,'fotos kecheu/nueva/IMG_6733.JPEG');
+      assert.ok(p.caption.includes('Exterior compartido'));
+    }else if(p.name==='new-living'){
+      assert.equal(index,0);
+      assert.equal(source.source,'fotos kecheu/nueva/IMG_6620.JPEG');
+    }else assert.ok(source.source.includes(index===0?'cabañaspara4_01':index===1?'cabañaspara4_02':'cabañaPara2'));
   }
 }
 for(const row of manifest)for(const suffix of ['.webp','-small.webp'])assert.ok((await fs.stat('public/images/'+row.name+suffix)).size>0);
 for(const match of page.matchAll(/name:'([^']+)'/g))assert.ok(manifest.some(m=>m.name===match[1]),'Missing '+match[1]);
-assert.equal(Object.values(photos).filter(p=>p.generated).length,2);
+assert.equal(Object.values(photos).filter(p=>p.generated).length,0);
+assert.equal(photos.hands.name,'real-clay');
+assert.equal(photos.clay.name,'ceramic-switch');
+assert.ok(!page.includes("name:'hands-temporary'"));
+assert.ok(!page.includes("name:'clay-temporary'"));
+assert.ok(page.includes('className="cabin-scenes"'));
+assert.ok(css.includes('.cabin-scene-1 .cabin-story{grid-column:1;grid-row:1}'));
+assert.ok(!css.includes('scaleX(-1)'));
+assert.ok(!page.includes('onMouseEnter'));
+for(const line of ['Un lugar para descansar.','Un valle para volar.','El barro para habitar.','Arcilla para crear.'])assert.ok(page.includes(line));
+assert.ok(page.includes('data-steps="5"'));
+assert.ok(page.includes('https://bosques.chubut.gov.ar/conservacion/'));
 assert.ok(page.includes('Imagen generada · referencia temporal'));
 assert.ok(css.includes('prefers-reduced-motion:reduce'));
 assert.ok(page.includes('aria-label="Fotografía anterior"'));
@@ -29,4 +50,4 @@ for(const id of ['llegar','historia','cabanas','casa','taller','lugar','contacto
 const metadata=await fs.readFile('app/layout.tsx','utf8');
 assert.ok(metadata.includes('https://kecheu-hecho-para-habitar.mateunatalia.chatgpt.site/og.png'));
 assert.ok(metadata.includes('index: false'));
-console.log('PASS: cabin mapping, 66 responsive image assets, generated labels, anchors, contact draft state, motion preferences and social metadata.');
+console.log('PASS: cabin mapping and galleries, responsive assets, real workshop photographs, mirrored layouts, sequential manifesto, anchors, honest contact state, reduced motion and preserved social metadata.');
