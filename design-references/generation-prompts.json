@@ -1,0 +1,18 @@
+{
+  "tool": "Built-in image generation",
+  "hands": {
+    "asset": "design-references/hands-temporary.png",
+    "temporary": true,
+    "prompt": "Use case: photorealistic-natural\nAsset type: temporary generated photographic reference for a private artisanal website draft, not documentary evidence of any real person.\nPrimary request: an extremely realistic editorial close-up of anonymous adult hands gently shaping a simple small ceramic bowl from wet earthy clay on a worn wood table.\nScene/backdrop: intimate contemporary artisanal setting, understated and quiet.\nStyle/medium: photorealistic natural editorial photography, tactile and unretouched, not commercial pottery studio stock photography.\nComposition/framing: landscape 3:2 composition; close-up; hands and bowl slightly right of center; no face visible.\nLighting/mood: natural side-window light, calm, intimate atmosphere with gentle soft shadows.\nColor palette: muted sand, umber, and soft olive.\nMaterials/textures: damp earthy clay with tactile fingerprints and subtle irregularities; real skin creases; grain and wear of wood.\nConstraints: anonymous invented adult subject, no resemblance or attribution to a named real person; anatomically believable hands gently touching the bowl; no jewelry, no face, no text, no logos, no watermark. One image only."
+  },
+  "clay": {
+    "asset": "design-references/clay-temporary.png",
+    "temporary": true,
+    "prompt": "Use case: photorealistic-natural\nAsset type: temporary conceptual photographic asset for a private Kecheu website draft, not documentation of actual artworks.\nPrimary request: Editorial macro still life of a simple unglazed handmade clay bowl and one small unfired clay piece on a worn pale wooden workbench.\nComposition/framing: landscape 3:2; foreground bowl fills the lower right; intimate close-up with shallow depth of field.\nLighting/mood: quiet soft side daylight, contemplative and artisanal, not product catalog photography.\nColor palette: warm beige clay, charcoal shadows, subtle olive background blur.\nMaterials/textures: exceptionally tactile realistic photography, irregular finger-shaped edges, natural imperfections and real clay dust, worn pale wood grain.\nConstraints: exactly one bowl and one small unfired clay piece; no text, no logo, no watermark, no hands or people. These are conceptual objects, not asserted to be any artist's real works."
+  },
+  "social": {
+    "asset": "public/og.png",
+    "temporary": false,
+    "prompt": "Use case: ads-marketing\nAsset type: single landscape social preview card, 1200x630 spirit, approximately 1.9:1 aspect ratio.\nPrimary request: Create exactly one refined understated editorial brand card for Kecheu, artisanal natural-construction cabins and ceramics in Epuyén, Patagonia.\nScene/backdrop: warm ivory paper background, with subtle tactile near-flat clay-paper texture.\nStyle/medium: premium minimal typographic editorial design, elegant large high-contrast serif typography, lots of breathing space.\nColor palette: warm ivory and deep olive #30392d, with one small muted terracotta #ad6447 accent.\nComposition/framing: generous outer margins, carefully balanced typographic hierarchy; the lowercase name is large, the tagline medium, the location small in widely spaced sans serif. Entire card is a flat finished graphic, no mockup or perspective.\nText (verbatim, only these three lines):\n\"kecheu\"\n\"Hecho para habitar.\"\n\"EPUYÉN · PATAGONIA\"\nConstraints: Spell kecheu exactly k-e-c-h-e-u in lowercase; preserve the accent in EPUYÉN, the middle dot and final period of the tagline. No fabricated photos of buildings or people, no icons, no illustrations, no extra text, no watermark, no logo other than the typographic name."
+  }
+}

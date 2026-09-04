@@ -1,0 +1,200 @@
+[
+  {
+    "name": "hero",
+    "id": "K041",
+    "source": "fotos kecheu/CabañasPara4_afuera/IMG_1829.JPEG",
+    "generated": false
+  },
+  {
+    "name": "construction",
+    "id": "K012",
+    "source": "fotos kecheu/cabañaPara2/IMG_7236.JPEG",
+    "generated": false
+  },
+  {
+    "name": "wall",
+    "id": "K010",
+    "source": "fotos kecheu/cabañaPara2/IMG_6063.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-one",
+    "id": "K060",
+    "source": "fotos kecheu/cabañaspara4_01/bd7d47d5-7bcb-4fef-a540-0b5fd00d27df.jpg",
+    "generated": false
+  },
+  {
+    "name": "cabin-one-kitchen",
+    "id": "K057",
+    "source": "fotos kecheu/cabañaspara4_01/76810f19-1f4a-4403-8e72-9bf033ce3666.jpg",
+    "generated": false
+  },
+  {
+    "name": "cabin-one-bedroom",
+    "id": "K067",
+    "source": "fotos kecheu/cabañaspara4_01/IMG_2663.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-one-light",
+    "id": "K074",
+    "source": "fotos kecheu/cabañaspara4_01/IMG_8705.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-two",
+    "id": "K030",
+    "source": "fotos kecheu/cabañaspara4_02/IMG_1463.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-two-living",
+    "id": "K023",
+    "source": "fotos kecheu/cabañaspara4_02/IMG_1439.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-two-window",
+    "id": "K034",
+    "source": "fotos kecheu/cabañaspara4_02/IMG_1475.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-two-stairs",
+    "id": "K032",
+    "source": "fotos kecheu/cabañaspara4_02/IMG_1469.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-small",
+    "id": "K013",
+    "source": "fotos kecheu/cabañaPara2/IMG_8590.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-small-inside",
+    "id": "K006",
+    "source": "fotos kecheu/cabañaPara2/IMG_4450.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-small-window",
+    "id": "K001",
+    "source": "fotos kecheu/cabañaPara2/IMG_0052.JPEG",
+    "generated": false
+  },
+  {
+    "name": "cabin-small-bath",
+    "id": "K009",
+    "source": "fotos kecheu/cabañaPara2/IMG_4461.JPEG",
+    "generated": false
+  },
+  {
+    "name": "house-building",
+    "id": "K084",
+    "source": "fotos kecheu/CASA KECHEU/IMG_0926.JPEG",
+    "generated": false
+  },
+  {
+    "name": "house-beams",
+    "id": "K083",
+    "source": "fotos kecheu/CASA KECHEU/IMG_0908.JPEG",
+    "generated": false
+  },
+  {
+    "name": "house-inside",
+    "id": "K111",
+    "source": "fotos kecheu/CASA KECHEU/IMG_3478.JPEG",
+    "generated": false
+  },
+  {
+    "name": "family",
+    "id": "K129",
+    "source": "fotos kecheu/CASA KECHEU/IMG_5624.JPEG",
+    "generated": false
+  },
+  {
+    "name": "workshop",
+    "id": "K119",
+    "source": "fotos kecheu/CASA KECHEU/IMG_4645.JPEG",
+    "generated": false
+  },
+  {
+    "name": "ceramic-switch",
+    "id": "K117",
+    "source": "fotos kecheu/CASA KECHEU/IMG_3748.JPEG",
+    "generated": false
+  },
+  {
+    "name": "window",
+    "id": "K125",
+    "source": "fotos kecheu/CASA KECHEU/IMG_4881.JPEG",
+    "generated": false
+  },
+  {
+    "name": "real-clay",
+    "id": "K092",
+    "source": "fotos kecheu/CASA KECHEU/IMG_1152.JPEG",
+    "generated": false
+  },
+  {
+    "name": "harvest",
+    "id": "K163",
+    "source": "fotos kecheu/Huerta/IMG_3285.JPEG",
+    "generated": false
+  },
+  {
+    "name": "garden",
+    "id": "K174",
+    "source": "fotos kecheu/Huerta/IMG_8716.JPEG",
+    "generated": false
+  },
+  {
+    "name": "carrots",
+    "id": "K171",
+    "source": "fotos kecheu/Huerta/IMG_6193.JPEG",
+    "generated": false
+  },
+  {
+    "name": "bread",
+    "id": "K100",
+    "source": "fotos kecheu/CASA KECHEU/IMG_1264.JPEG",
+    "generated": false
+  },
+  {
+    "name": "river",
+    "id": "K176",
+    "source": "fotos kecheu/pasiajes/IMG_5344.JPEG",
+    "generated": false
+  },
+  {
+    "name": "lake",
+    "id": "K181",
+    "source": "fotos kecheu/pasiajes/IMG_8825.JPEG",
+    "generated": false
+  },
+  {
+    "name": "pause",
+    "id": "K034",
+    "source": "fotos kecheu/cabañaspara4_02/IMG_1475.JPEG",
+    "generated": false
+  },
+  {
+    "name": "house-pond",
+    "id": "K094",
+    "source": "fotos kecheu/CASA KECHEU/IMG_1192.JPEG",
+    "generated": false
+  },
+  {
+    "name": "hands-temporary",
+    "generated": true,
+    "source": "design-references/hands-temporary.png",
+    "replacement": "Reemplazar con fotografía real y cambiar generated a false en app/content.ts."
+  },
+  {
+    "name": "clay-temporary",
+    "generated": true,
+    "source": "design-references/clay-temporary.png",
+    "replacement": "Reemplazar con fotografía real y cambiar generated a false en app/content.ts."
+  }
+]
