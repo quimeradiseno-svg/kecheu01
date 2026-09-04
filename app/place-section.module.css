@@ -1,0 +1,75 @@
+.section { overflow: hidden; }
+
+.composition {
+  display: grid;
+  grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
+  gap: clamp(38px, 5vw, 86px);
+  align-items: start;
+}
+
+.copy { padding-top: clamp(10px, 3vw, 46px); }
+
+.copy h2 {
+  font-size: clamp(42px, 4.8vw, 72px);
+  line-height: 1.07;
+  letter-spacing: -.045em;
+}
+
+.copy h2 em { color: var(--clay); }
+
+.copy p {
+  max-width: 390px;
+  margin-top: clamp(30px, 4vw, 52px);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.landscape {
+  height: clamp(430px, 48vw, 650px);
+  margin: 0;
+  overflow: hidden;
+}
+
+.landscape img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.distances {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 5vw, 90px);
+  margin-top: 36px;
+  padding: 27px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.distances span {
+  font: clamp(38px, 4vw, 54px)/1 Georgia, serif;
+  letter-spacing: -.05em;
+}
+
+.distances small { font-size: .45em; font-style: italic; }
+
+.distances p {
+  margin-top: 11px;
+  font-size: 9px;
+  line-height: 1.7;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .composition { display: block; }
+  .copy { padding-top: 0; }
+  .copy h2 { font-size: clamp(38px, 9.5vw, 62px); }
+  .copy p { max-width: none; margin-top: 25px; }
+  .landscape { height: 330px; margin: 35px -12px 0; }
+  .distances { gap: 12px; margin-top: 25px; padding: 25px 0; }
+  .distances span { font-size: 38px; }
+  .distances p { font-size: 8px; letter-spacing: .4px; }
+}

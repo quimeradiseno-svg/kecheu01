@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowUpRight, ArrowLeft, ArrowRight, Plus, Menu, X, Pause, Play, Check, Copy, MapPin } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, ArrowLeft, ArrowRight, Plus, Menu, X, Pause, Play, Check, Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi } from '@/components/ui/carousel';
@@ -9,6 +9,7 @@ import { cabins, contact, photos, type Photo } from './content';
 import imageSizes from './image-sizes.json';
 import { PauseSection } from './pause-section';
 import { HouseStory } from './house-story';
+import { PlaceSection } from './place-section';
 
 const nav = [['historia','Historia'],['cabanas','Cabañas'],['taller','Taller'],['lugar','El lugar']];
 const message = 'Hola, nos gustaría conocer Kecheu. ¿Podemos conversar sobre las cabañas y el taller de cerámica?';
@@ -176,7 +177,7 @@ export default function Home() {
 
     <PauseSection paused={paused}/>
 
-    <section className="place-section section-pad" id="lugar"><div className="section-heading reveal"><p className="eyebrow">06 / UN VALLE PARA VOLAR</p><span className="small-note">Epuyén · Chubut · Patagonia Argentina</span></div><div className="place-intro reveal"><h2>La naturaleza<br/>no es el fondo.<br/><em>Es la protagonista.</em></h2><p>A los pies de los Andes, entre el Cerro Pirque y el Cerro Epuyén. Un pueblo pequeño, un río cerca y un lago para mirar sin apuro.</p></div><div className="place-images"><PhotoFrame photo={{name:'lake',alt:'Orilla de aguas transparentes, lago y montañas de Epuyén'}} className="lake-photo reveal" still/><div className="river-note"><PhotoFrame photo={{name:'river',alt:'Agua transparente y árboles en un río del entorno de Epuyén'}} className="river-photo reveal"/><p className="body-copy reveal">Aguas cristalinas. Un paisaje para escuchar.<br/><a href="https://bosques.chubut.gov.ar/conservacion/" target="_blank" rel="noreferrer">En el lago Epuyén no se permite la navegación a motor.</a></p></div></div><div className="distances reveal"><div><span>500 <small>m</small></span><p>RÍO EPUYÉN</p></div><div><span>3 <small>km</small></span><p>LAGO EPUYÉN / PUERTO BONITO</p></div><div><span>4 <small>km</small></span><p>PUEBLO</p></div><a href={contact.mapUrl} target="_blank" rel="noreferrer" className="text-link">Ubicar Epuyén <MapPin size={18}/></a></div><p className="distance-note">Distancias aproximadas desde Kecheu. El mapa muestra Epuyén, no la entrada al predio.</p></section>
+    <PlaceSection/>
 
     <section className="manifesto-section" aria-label="Manifiesto de Kecheu"><p className="eyebrow manifesto-intro reveal">AHORA YA CONOCÉS LA HISTORIA</p><div className="manifesto-sequence">{manifestoItems.map((item,i)=><article className={'manifesto-moment manifesto-moment-'+i} key={item.tag}><PhotoFrame photo={{name:item.image,alt:item.alt}} className="manifesto-image reveal" still/><h2 className="reveal"><a href={item.href}>{item.line}</a></h2><span className="eyebrow reveal">0{i+1} / {item.tag}</span></article>)}</div><div className="conclusion"><p className="this-is reveal">Esto es <em>Kecheu.</em></p></div></section>
 
