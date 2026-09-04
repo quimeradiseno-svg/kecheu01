@@ -50,7 +50,7 @@ for(const name of ['new-family-building','bread','workshop','harvest','house-bui
 assert.ok(!css.includes('scaleX(-1)'));
 assert.ok(!page.includes('onMouseEnter'));
 for(const line of ['Un lugar para descansar.','Un valle para volar.','El barro para habitar.','Arcilla para crear.'])assert.ok(page.includes(line));
-assert.ok(page.includes('data-steps="5"'));
+assert.ok(page.includes('<PauseSection paused={paused}/>'));
 assert.ok(page.includes('https://bosques.chubut.gov.ar/conservacion/'));
 assert.ok(page.includes('Imagen generada · referencia temporal'));
 assert.ok(css.includes('prefers-reduced-motion:reduce'));

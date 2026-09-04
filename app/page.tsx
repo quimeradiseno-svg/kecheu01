@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose } fr
 import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi } from '@/components/ui/carousel';
 import { cabins, contact, photos, type Photo } from './content';
 import imageSizes from './image-sizes.json';
+import { PauseSection } from './pause-section';
 
 const nav = [['historia','Historia'],['cabanas','Cabañas'],['taller','Taller'],['lugar','El lugar']];
 const message = 'Hola, nos gustaría conocer Kecheu. ¿Podemos conversar sobre las cabañas y el taller de cerámica?';
@@ -175,11 +176,7 @@ export default function Home() {
 
     <section className="life-section section-pad"><div className="life-title reveal"><p className="eyebrow">05 / LA VIDA ENTRE MEDIO</p><h2>Lo que crece.<br/><em>Lo que compartimos.</em></h2></div><div className="life-grid"><div className="life-garden reveal"><PhotoFrame photo={{name:'garden',alt:'Trabajo cotidiano en la huerta de Kecheu'}}/><p>Cultivar.</p></div><div className="life-pond reveal"><PhotoFrame photo={{name:'house-pond',alt:'El estanque junto a la casa familiar, entre la vegetación'}}/><p>Cuidar.</p></div><div className="life-landscape reveal"><PhotoFrame photo={{name:'new-mountains',alt:'Montañas nevadas y vegetación vistas desde Kecheu'}}/><p>Compartir.</p></div></div></section>
 
-    <section className="pause-scene dark" data-scene data-steps="5">
-      <div className="pause-sticky"><PhotoFrame photo={{name:'pause',alt:'Rincón de descanso junto a la ventana y la vista a la montaña'}} className="pause-image"/><div className="pause-shade"/>
-        <div className="pause-text"><h2>Aunque también<br/>podés <em>no hacer<br/>nada.</em></h2><div className="pause-phrases">{['Tomar mate.','Leer.','Escuchar el agua.','Mirar la montaña.','O nada.'].map((line,i)=><p key={line} data-step={i} className={i===4?'pause-last':''}>{line}</p>)}</div></div>
-      </div>
-    </section>
+    <PauseSection paused={paused}/>
 
     <section className="place-section section-pad" id="lugar"><div className="section-heading reveal"><p className="eyebrow">06 / UN VALLE PARA VOLAR</p><span className="small-note">Epuyén · Chubut · Patagonia Argentina</span></div><div className="place-intro reveal"><h2>La naturaleza<br/>no es el fondo.<br/><em>Es la protagonista.</em></h2><p>A los pies de los Andes, entre el Cerro Pirque y el Cerro Epuyén. Un pueblo pequeño, un río cerca y un lago para mirar sin apuro.</p></div><div className="place-images"><PhotoFrame photo={{name:'lake',alt:'Orilla de aguas transparentes, lago y montañas de Epuyén'}} className="lake-photo reveal" still/><div className="river-note"><PhotoFrame photo={{name:'river',alt:'Agua transparente y árboles en un río del entorno de Epuyén'}} className="river-photo reveal"/><p className="body-copy reveal">Aguas cristalinas. Un paisaje para escuchar.<br/><a href="https://bosques.chubut.gov.ar/conservacion/" target="_blank" rel="noreferrer">En el lago Epuyén no se permite la navegación a motor.</a></p></div></div><div className="distances reveal"><div><span>500 <small>m</small></span><p>RÍO EPUYÉN</p></div><div><span>3 <small>km</small></span><p>LAGO EPUYÉN / PUERTO BONITO</p></div><div><span>4 <small>km</small></span><p>PUEBLO</p></div><a href={contact.mapUrl} target="_blank" rel="noreferrer" className="text-link">Ubicar Epuyén <MapPin size={18}/></a></div><p className="distance-note">Distancias aproximadas desde Kecheu. El mapa muestra Epuyén, no la entrada al predio.</p></section>
 
