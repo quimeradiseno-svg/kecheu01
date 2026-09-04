@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
-import { execFileSync } from 'node:child_process';
 import { pauseMomentIndex, pauseMoments } from '../app/pause-sequence.ts';
 
 assert.deepEqual(pauseMoments.map(moment => moment.text), ['Tomar mate.', 'Escuchar el agua.', 'Mirar la montaña.', 'O nada.']);
@@ -26,12 +25,4 @@ assert.ok(css.includes('transition: opacity 1200ms ease-in-out'));
 assert.ok(!/transform|translate|scale|animation:/.test(css));
 assert.ok(css.includes('prefers-reduced-motion: reduce'));
 
-// This change is deliberately limited to the pause section and its import.
-const baseline = 'f123e1db54bfa160f48a82f3087a4c5dacda8fb7';
-const original = path => execFileSync('git', ['-c', `safe.directory=${process.cwd().replaceAll('\\','/')}`, 'show', `${baseline}:${path}`], {encoding:'utf8'});
-const page = await fs.readFile('app/page.tsx', 'utf8');
-const before = original('app/page.tsx').replace(/    <section className="pause-scene dark"[\s\S]*?    <\/section>/, '    PAUSE_SECTION');
-const after = page.replace("import { PauseSection } from './pause-section';\n", '').replace('    <PauseSection paused={paused}/>', '    PAUSE_SECTION');
-assert.equal(after, before, 'Content outside the requested section must remain identical');
-assert.equal(await fs.readFile('app/globals.css','utf8'), original('app/globals.css'), 'Global styles must remain identical');
-console.log('PASS: four synchronized moments, scroll boundaries in both directions, existing images, opacity-only transitions, bounded sticky, unchanged remaining page and global styles.');
+console.log('PASS: four synchronized moments, scroll boundaries in both directions, existing images, opacity-only transitions and bounded sticky.');

@@ -8,6 +8,7 @@ import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi 
 import { cabins, contact, photos, type Photo } from './content';
 import imageSizes from './image-sizes.json';
 import { PauseSection } from './pause-section';
+import { HouseStory } from './house-story';
 
 const nav = [['historia','Historia'],['cabanas','Cabañas'],['taller','Taller'],['lugar','El lugar']];
 const message = 'Hola, nos gustaría conocer Kecheu. ¿Podemos conversar sobre las cabañas y el taller de cerámica?';
@@ -153,10 +154,7 @@ export default function Home() {
       <div className="cabins-bottom"><span>Completamente equipadas. Cocina y baño completos.</span><span>El descanso no necesita mucho más.</span></div>
     </section>
 
-    <section id="casa" className="house-story dark" data-house-scene>
-      <div className="house-lead"><p className="eyebrow house-chapter">03 / EL BARRO PARA HABITAR</p><h2 className="house-sentence"><span className="house-beat" data-arrive="0">Y después,</span><span className="house-beat" data-arrive="1">se convirtió</span><span className="house-beat house-final" data-arrive="2">en <em>casa.</em></span></h2></div>
-      <div className="house-arrival" data-arrive="3"><PhotoFrame photo={{name:'house-inside',alt:'Interior de la casa-taller familiar: pilar central, vigas de madera y ventanales'}} className="house-finished" still/><p className="house-context">LA CASA-TALLER DE LA FAMILIA · NO ES UNA CABAÑA DE ALQUILER</p></div>
-    </section>
+    <HouseStory paused={paused}/>
     <section className="family-section section-pad">
       <div className="family-album"><PhotoFrame photo={{name:'family',alt:'Retrato de la familia de Kecheu: dos adultos y sus dos hijos'}} className="family-photo reveal" still/></div>
       <div className="family-copy reveal"><p className="eyebrow">EL PROYECTO TAMBIÉN ES LA VIDA</p><h2>No sólo lo<br/>construimos.<br/><em>Lo habitamos.</em></h2><p className="body-copy">Después de construir las cabañas, Daniel y Laura levantaron su propia casa-taller en el mismo lugar y se mudaron allí con sus hijos.</p><p className="body-copy">Lo que había comenzado como un proyecto terminó convirtiéndose en una forma de vivir.</p><p className="body-copy">La casa, el taller, la huerta, el estanque. Los chicos creciendo, el pan sobre la mesa.</p><Button variant="link" className="text-link archive-link" onClick={()=>setArchiveOpen(true)}>Recorrer el archivo familiar <ArrowUpRight size={18}/></Button></div>
