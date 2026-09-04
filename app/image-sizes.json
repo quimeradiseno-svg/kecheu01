@@ -144,6 +144,21 @@
     "height": 1500,
     "smallWidth": 800
   },
+  "place-forest-road": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "place-stream": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750
+  },
+  "place-lake-wide": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 800
+  },
   "lake": {
     "width": 2000,
     "height": 1500,

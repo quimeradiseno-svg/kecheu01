@@ -177,7 +177,7 @@ export default function Home() {
 
     <PauseSection paused={paused}/>
 
-    <PlaceSection/>
+    <PlaceSection paused={paused}/>
 
     <section className="manifesto-section" aria-label="Manifiesto de Kecheu"><p className="eyebrow manifesto-intro reveal">AHORA YA CONOCÉS LA HISTORIA</p><div className="manifesto-sequence">{manifestoItems.map((item,i)=><article className={'manifesto-moment manifesto-moment-'+i} key={item.tag}><PhotoFrame photo={{name:item.image,alt:item.alt}} className="manifesto-image reveal" still/><h2 className="reveal"><a href={item.href}>{item.line}</a></h2><span className="eyebrow reveal">0{i+1} / {item.tag}</span></article>)}</div><div className="conclusion"><p className="this-is reveal">Esto es <em>Kecheu.</em></p></div></section>
 

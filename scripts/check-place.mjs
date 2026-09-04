@@ -4,28 +4,51 @@ import { execFileSync } from 'node:child_process';
 
 const component = await fs.readFile('app/place-section.tsx', 'utf8');
 const css = await fs.readFile('app/place-section.module.css', 'utf8');
-assert.ok(component.includes('La naturaleza<br/>no es el fondo.<br/><em>Es la protagonista.</em>'));
-assert.ok(component.includes('Agua, senderos y montaña a pocos minutos de Kecheu. En el Lago Epuyén, incluso los motores se quedan afuera.'));
-assert.equal((component.match(/<figure/g) || []).length, 1);
-assert.ok(component.includes('data-place-landscape="lake"'));
-for (const suffix of ['.webp','-small.webp']) assert.ok((await fs.stat(`public/images/lake${suffix}`)).size > 0);
-for (const text of ['500 <small>m</small>', 'Río Epuyén', '3 <small>km</small>', 'Lago Epuyén', '4 <small>km</small>', 'Pueblo']) assert.ok(component.includes(text));
-assert.ok(!/card|sticky|Carousel|<button|<Button|background:/.test(component));
-assert.ok(css.includes('34fr) minmax(0, 66fr)'));
-assert.ok(css.includes('height: clamp(430px, 48vw, 650px)'));
-assert.ok(!/position:\s*sticky|animation:/.test(css));
 
-const baseline = '5c9003f5de3a4bdfea8203a4f352f0d6d2be0f5d';
-const original = path => execFileSync('git', ['-c', `safe.directory=${process.cwd().replaceAll('\\','/')}`, 'show', `${baseline}:${path}`], {encoding:'utf8'});
+for (const text of [
+  '06 — UN VALLE PARA VOLAR',
+  'La naturaleza<br/>no es el fondo.<br/><em>Es la protagonista.</em>',
+  'A 500 m,<br/><em>el río.</em>',
+  'A 3 km,<br/><em>el lago.</em>',
+  'Acá, hasta los motores<br/><em>se quedan afuera.</em>',
+  'Y alrededor,<br/><em>montaña.</em>',
+  'Y en algún lugar,<br/>ahí en el medio,<br/><em>estamos nosotros.</em>',
+]) assert.ok(component.includes(text), 'Missing text: ' + text);
+
+const names = [...component.matchAll(/name="([^"]+)"/g)].map(match => match[1]);
+assert.deepEqual(names, ['lake', 'river', 'place-forest-road', 'place-stream', 'place-lake-wide', 'new-mountains', 'cabin-small']);
+assert.ok(component.includes('data-place-horizontal="7"'));
+assert.ok(component.includes("canvas.scrollWidth - window.innerWidth"));
+assert.ok(component.includes("-rect.top / travel"));
+assert.ok(component.includes("window.matchMedia('(max-width: 760px)')"));
+assert.ok(!/Carousel|<button|<Button|Arrow|onDrag|draggable|crossfade/i.test(component));
+
+for (const name of names) {
+  for (const suffix of ['.webp', '-small.webp']) {
+    assert.ok((await fs.stat(`public/images/${name}${suffix}`)).size > 0, `Missing ${name}${suffix}`);
+  }
+}
+
+for (const rule of [
+  'position: sticky',
+  'height: 100svh',
+  'width: max-content',
+  'translate3d(var(--place-x), 0, 0)',
+  'scaleX(var(--place-progress))',
+  '@media (max-width: 760px)',
+]) assert.ok(css.includes(rule), 'Missing CSS behavior: ' + rule);
+assert.ok(/@media \(max-width: 760px\)[\s\S]*?\.section \{[\s\S]*?height: auto !important/.test(css));
+assert.ok(!/perspective:|rotate\(|rotate3d\(|animation:/.test(css));
+
+const baseline = '87dc8f2e072e692ee7d147e8a0b4a087e2516992';
+const original = path => execFileSync('git', ['-c', `safe.directory=${process.cwd().replaceAll('\\','/')}`, 'show', `${baseline}:${path}`], { encoding: 'utf8' });
 const page = await fs.readFile('app/page.tsx', 'utf8');
-const before = original('app/page.tsx')
-  .replace(', MapPin', '')
-  .replace(/    <section className="place-section section-pad" id="lugar">[\s\S]*?<\/section>/, '    PLACE_SECTION');
-const after = page
-  .replace("import { PlaceSection } from './place-section';\n", '')
-  .replace('    <PlaceSection/>', '    PLACE_SECTION');
+const before = original('app/page.tsx').replace('    <PlaceSection/>', '    PLACE_SECTION');
+const after = page.replace('    <PlaceSection paused={paused}/>', '    PLACE_SECTION');
 assert.equal(after, before, 'Content outside the requested place section must remain identical');
-assert.equal(await fs.readFile('app/globals.css','utf8'), original('app/globals.css'), 'Global styles must remain identical');
-assert.equal(await fs.readFile('app/pause-section.tsx','utf8'), original('app/pause-section.tsx'), 'The preceding pause section must remain identical');
-assert.equal(await fs.readFile('app/pause-section.module.css','utf8'), original('app/pause-section.module.css'), 'The preceding pause styles must remain identical');
-console.log('PASS: one dominant lake landscape, 34/66 editorial layout, minimal narrative and distances, no sticky/cards, unchanged pause section and global styles.');
+assert.equal(await fs.readFile('app/globals.css', 'utf8'), original('app/globals.css'), 'Global styles must remain identical');
+for (const path of ['app/pause-section.tsx', 'app/pause-section.module.css', 'app/house-story.tsx', 'app/house-story.module.css', 'app/house-sequence.ts']) {
+  assert.equal(await fs.readFile(path, 'utf8'), original(path), `${path} must remain identical`);
+}
+
+console.log('PASS: seven real photographs, continuous horizontal canvas, scroll-linked progress, natural mobile layout, and every other landing section unchanged.');

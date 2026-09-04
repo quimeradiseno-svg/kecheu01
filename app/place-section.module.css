@@ -1,75 +1,345 @@
-.section { overflow: hidden; }
-
-.composition {
-  display: grid;
-  grid-template-columns: minmax(0, 34fr) minmax(0, 66fr);
-  gap: clamp(38px, 5vw, 86px);
-  align-items: start;
+.section {
+  --place-x: 0px;
+  --place-progress: 0;
+  position: relative;
+  height: 680vh;
+  color: var(--foreground);
+  background: var(--background);
 }
 
-.copy { padding-top: clamp(10px, 3vw, 46px); }
-
-.copy h2 {
-  font-size: clamp(42px, 4.8vw, 72px);
-  line-height: 1.07;
-  letter-spacing: -.045em;
-}
-
-.copy h2 em { color: var(--clay); }
-
-.copy p {
-  max-width: 390px;
-  margin-top: clamp(30px, 4vw, 52px);
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.landscape {
-  height: clamp(430px, 48vw, 650px);
-  margin: 0;
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
   overflow: hidden;
 }
 
-.landscape img {
+.canvas {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: flex;
+  width: max-content;
+  height: 100%;
+  padding: clamp(94px, 12vh, 130px) 8vw clamp(55px, 8vh, 80px);
+  transform: translate3d(var(--place-x), 0, 0);
+  will-change: transform;
+}
+
+.canvas article {
+  position: relative;
+  flex: 0 0 auto;
+  height: 100%;
+}
+
+.canvas figure {
+  margin: 0;
+  overflow: hidden;
+  background: var(--muted);
+}
+
+.canvas img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
 }
 
-.distances {
+.canvas em {
+  color: var(--clay);
+}
+
+.intro {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(24px, 5vw, 90px);
-  margin-top: 36px;
-  padding: 27px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  grid-template-columns: 34vw 64vw;
+  gap: 5vw;
+  width: 110vw;
+  align-items: center;
 }
 
-.distances span {
-  font: clamp(38px, 4vw, 54px)/1 Georgia, serif;
-  letter-spacing: -.05em;
+.introCopy {
+  align-self: center;
+  padding-bottom: 3vh;
 }
 
-.distances small { font-size: .45em; font-style: italic; }
+.introCopy :global(.eyebrow) {
+  margin-bottom: clamp(26px, 5vh, 54px);
+}
 
-.distances p {
-  margin-top: 11px;
-  font-size: 9px;
-  line-height: 1.7;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.introCopy h2 {
+  margin: 0;
+  font-size: clamp(52px, 5.7vw, 94px);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.entryPhoto {
+  width: 64vw;
+  height: min(69svh, 680px);
+}
+
+.riverMoment {
+  display: grid;
+  grid-template-columns: 24vw 39vw;
+  gap: 8vw;
+  width: 82vw;
+  align-items: center;
+  padding-left: 7vw;
+}
+
+.distanceText,
+.lakeCopy p,
+.mountainMoment > p,
+.finalMoment > p {
+  margin: 0;
+  font: clamp(29px, 3vw, 50px)/1.12 Georgia, serif;
+  letter-spacing: -.035em;
+}
+
+.riverPhoto {
+  width: 39vw;
+  height: min(62svh, 610px);
+}
+
+.pairMoment {
+  width: 92vw;
+}
+
+.forestPhoto {
+  position: absolute;
+  top: 0;
+  left: 8vw;
+  width: 27vw;
+  height: min(56svh, 550px);
+}
+
+.streamPhoto {
+  position: absolute;
+  right: 8vw;
+  bottom: 0;
+  width: 38vw;
+  height: min(43svh, 425px);
+}
+
+.lakeMoment {
+  display: grid;
+  grid-template-columns: 28vw 78vw;
+  gap: 7vw;
+  width: 120vw;
+  align-items: center;
+  padding-left: 6vw;
+}
+
+.lakeCopy {
+  display: flex;
+  height: min(64svh, 630px);
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5vh 0;
+}
+
+.lakePhoto {
+  width: 78vw;
+  height: min(72svh, 710px);
+}
+
+.mountainMoment {
+  display: grid;
+  grid-template-columns: 25vw 62vw;
+  gap: 7vw;
+  width: 103vw;
+  align-items: center;
+  padding-left: 8vw;
+}
+
+.mountainPhoto {
+  width: 62vw;
+  height: min(58svh, 570px);
+}
+
+.finalMoment {
+  display: grid;
+  grid-template-columns: 27vw 34vw;
+  gap: 12vw;
+  width: 94vw;
+  align-items: center;
+  padding: 0 14vw 0 7vw;
+}
+
+.cabinPhoto {
+  width: 27vw;
+  height: min(52svh, 510px);
+}
+
+.finalMoment > p {
+  font-size: clamp(30px, 3.2vw, 54px);
+}
+
+.progress {
+  position: absolute;
+  right: 8vw;
+  bottom: 24px;
+  left: 8vw;
+  height: 1px;
+  background: color-mix(in srgb, var(--foreground) 18%, transparent);
+}
+
+.progress span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--clay);
+  transform: scaleX(var(--place-progress));
+  transform-origin: left center;
+}
+
+.section[data-motion-off='true'] {
+  height: auto !important;
+}
+
+.section[data-motion-off='true'] .sticky {
+  position: relative;
+  height: auto;
+  overflow: visible;
+}
+
+.section[data-motion-off='true'] .canvas {
+  position: relative;
+  display: block;
+  width: auto;
+  height: auto;
+  transform: none;
+}
+
+.section[data-motion-off='true'] .canvas article {
+  width: auto;
+  min-height: 72svh;
+  margin-bottom: 12vh;
+}
+
+.section[data-motion-off='true'] .progress {
+  display: none;
 }
 
 @media (max-width: 760px) {
-  .composition { display: block; }
-  .copy { padding-top: 0; }
-  .copy h2 { font-size: clamp(38px, 9.5vw, 62px); }
-  .copy p { max-width: none; margin-top: 25px; }
-  .landscape { height: 330px; margin: 35px -12px 0; }
-  .distances { gap: 12px; margin-top: 25px; padding: 25px 0; }
-  .distances span { font-size: 38px; }
-  .distances p { font-size: 8px; letter-spacing: .4px; }
+  .section {
+    height: auto !important;
+  }
+
+  .sticky {
+    position: relative;
+    height: auto;
+    overflow: visible;
+  }
+
+  .canvas {
+    position: relative;
+    display: block;
+    width: auto;
+    height: auto;
+    padding: 90px 24px 80px;
+    transform: none;
+  }
+
+  .canvas article,
+  .section[data-motion-off='true'] .canvas article {
+    width: auto;
+    height: auto;
+    min-height: 0;
+    margin-bottom: 92px;
+    padding: 0;
+  }
+
+  .intro {
+    display: block;
+  }
+
+  .introCopy h2 {
+    font-size: clamp(42px, 11vw, 70px);
+  }
+
+  .entryPhoto {
+    width: calc(100% + 24px);
+    height: 55svh;
+    margin: 48px -24px 0 0 !important;
+  }
+
+  .riverMoment,
+  .lakeMoment,
+  .mountainMoment,
+  .finalMoment {
+    display: block;
+  }
+
+  .distanceText,
+  .lakeCopy p,
+  .mountainMoment > p,
+  .finalMoment > p {
+    font-size: clamp(31px, 9vw, 46px);
+  }
+
+  .riverPhoto {
+    width: 82%;
+    height: 56svh;
+    margin: 38px 0 0 auto !important;
+  }
+
+  .pairMoment {
+    min-height: 760px !important;
+  }
+
+  .forestPhoto {
+    top: 0;
+    left: 0;
+    width: 62%;
+    height: 420px;
+  }
+
+  .streamPhoto {
+    right: 0;
+    bottom: 0;
+    width: 72%;
+    height: 330px;
+  }
+
+  .lakeCopy {
+    height: auto;
+    padding: 0;
+  }
+
+  .lakeCopy p + p {
+    margin: 58px 0 35px 16%;
+  }
+
+  .lakePhoto {
+    width: calc(100% + 48px);
+    height: 49svh;
+    margin-left: -24px !important;
+  }
+
+  .mountainMoment > p {
+    margin: 0 0 40px 10%;
+  }
+
+  .mountainPhoto {
+    width: 92%;
+    height: 44svh;
+  }
+
+  .finalMoment {
+    padding: 50px 0 30px !important;
+  }
+
+  .cabinPhoto {
+    width: 66%;
+    height: 47svh;
+    margin: 0 auto 55px !important;
+  }
+
+  .finalMoment > p {
+    margin-left: 8%;
+  }
+
+  .progress {
+    display: none;
+  }
 }
