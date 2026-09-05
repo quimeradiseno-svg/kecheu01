@@ -10,6 +10,7 @@ import imageSizes from './image-sizes.json';
 import { PauseSection } from './pause-section';
 import { HouseStory } from './house-story';
 import { PlaceSection } from './place-section';
+import { ManifestoSection } from './manifesto-section';
 
 const nav = [['historia','Historia'],['cabanas','Cabañas'],['taller','Taller'],['lugar','El lugar']];
 const message = 'Hola, nos gustaría conocer Kecheu. ¿Podemos conversar sobre las cabañas y el taller de cerámica?';
@@ -116,12 +117,6 @@ export default function Home() {
     else setContactOpen(true);
   };
   const copyMessage=async()=>{try{await navigator.clipboard.writeText(message);setCopied(true);}catch{copyRef.current?.select();setCopied(false);}};
-  const manifestoItems=[
-    {line:'Un lugar para descansar.',tag:'Las cabañas',image:'cabin-small',alt:'La cabaña para dos, hecha de barro y madera',href:'#cabanas'},
-    {line:'Un valle para volar.',tag:'Epuyén',image:'new-mountains',alt:'Las montañas nevadas de Epuyén, vistas desde Kecheu',href:'#lugar'},
-    {line:'El barro para habitar.',tag:'La casa',image:'house-inside',alt:'La casa familiar, con su pilar y entramado de madera',href:'#casa'},
-    {line:'Arcilla para crear.',tag:'El taller',image:'real-clay',alt:'Una mano sostiene una pieza de arcilla decorada',href:'#taller'}
-  ];
   return <main>
     <a className="skip-link" href="#historia">Saltar a la historia</a><div className="reading-progress" aria-hidden="true"/>
     <header className="site-header">
@@ -179,7 +174,7 @@ export default function Home() {
 
     <PlaceSection paused={paused}/>
 
-    <section className="manifesto-section" aria-label="Manifiesto de Kecheu"><p className="eyebrow manifesto-intro reveal">AHORA YA CONOCÉS LA HISTORIA</p><div className="manifesto-sequence">{manifestoItems.map((item,i)=><article className={'manifesto-moment manifesto-moment-'+i} key={item.tag}><PhotoFrame photo={{name:item.image,alt:item.alt}} className="manifesto-image reveal" still/><h2 className="reveal"><a href={item.href}>{item.line}</a></h2><span className="eyebrow reveal">0{i+1} / {item.tag}</span></article>)}</div><div className="conclusion"><p className="this-is reveal">Esto es <em>Kecheu.</em></p></div></section>
+    <ManifestoSection/>
 
     <footer className="site-footer dark" id="contacto"><div className="footer-top"><div><p className="eyebrow">07 / LA CONVERSACIÓN SIGUE</p><h2>¿Venís a<br/><em>conocerlo?</em></h2></div><div className="footer-invite"><p>Escribinos y contanos cuándo te gustaría venir a Epuyén.</p><Button className="contact-button" onClick={openContact}>Escribinos por WhatsApp <ArrowRight size={24}/></Button>{!contact.whatsappNumber&&<span className="preview-note">Vista previa · WhatsApp pendiente de conectar</span>}</div></div><div className="footer-bottom"><a href="#llegar" className="wordmark">kecheu<span>EPUYÉN · PATAGONIA</span></a><div className="footer-socials">{contact.instagramUrl?<a href={contact.instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>:<span>Instagram · próximamente</span>}{contact.airbnbUrl?<a href={contact.airbnbUrl} target="_blank" rel="noreferrer">Airbnb ↗</a>:<span>Airbnb · próximamente</span>}<a href={contact.mapUrl} target="_blank" rel="noreferrer">Cómo llegar · Epuyén ↗</a></div><Button variant="ghost" className="motion-toggle" onClick={()=>setPaused(p=>!p)} aria-pressed={paused}>{paused?<Play size={13}/>:<Pause size={13}/>} {paused?'Activar movimiento':'Pausar movimiento'}</Button></div><div className="footer-fine"><span>Hecho a mano. Hecho para habitar.</span><span>Barro · madera · arcilla · montaña</span></div></footer>
 

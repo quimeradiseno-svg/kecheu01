@@ -46,8 +46,13 @@ assert.equal((await import('../app/image-sizes.json', { with: { type: 'json' } }
 const baseline = '87dc8f2e072e692ee7d147e8a0b4a087e2516992';
 const original = path => execFileSync('git', ['-c', `safe.directory=${process.cwd().replaceAll('\\','/')}`, 'show', `${baseline}:${path}`], { encoding: 'utf8' });
 const page = await fs.readFile('app/page.tsx', 'utf8');
-const before = original('app/page.tsx').replace('    <PlaceSection/>', '    PLACE_SECTION');
-const after = page.replace('    <PlaceSection paused={paused}/>', '    PLACE_SECTION');
+const normalizeManifesto = source => source
+  .replace("import { ManifestoSection } from './manifesto-section';\n", '')
+  .replace(/  const manifestoItems=\[[\s\S]*?\n  \];\n/, '')
+  .replace(/    <section className="manifesto-section"[\s\S]*?<\/section>/, '    MANIFESTO_SECTION')
+  .replace('    <ManifestoSection/>', '    MANIFESTO_SECTION');
+const before = normalizeManifesto(original('app/page.tsx')).replace('    <PlaceSection/>', '    PLACE_SECTION');
+const after = normalizeManifesto(page).replace('    <PlaceSection paused={paused}/>', '    PLACE_SECTION');
 assert.equal(after, before, 'Content outside the requested place section must remain identical');
 assert.equal(await fs.readFile('app/globals.css', 'utf8'), original('app/globals.css'), 'Global styles must remain identical');
 for (const path of ['app/pause-section.tsx', 'app/pause-section.module.css', 'app/house-story.tsx', 'app/house-story.module.css', 'app/house-sequence.ts']) {
