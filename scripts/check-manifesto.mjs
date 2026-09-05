@@ -45,8 +45,6 @@ const after = page
 assert.equal(after, before, 'Everything outside the requested manifesto section must remain identical');
 assert.equal(await fs.readFile('app/globals.css', 'utf8'), original('app/globals.css'), 'Global styles must remain identical');
 for (const path of [
-  'app/place-section.tsx',
-  'app/place-section.module.css',
   'app/pause-section.tsx',
   'app/pause-section.module.css',
   'app/house-story.tsx',

@@ -56,7 +56,7 @@ assert.ok(!page.includes('onMouseEnter'));
 for(const line of ['Un lugar para descansar.','Un valle para volar.','El barro para habitar.','Arcilla para crear.'])assert.ok(manifestoSection.includes(line));
 assert.ok(page.includes('<ManifestoSection/>'));
 assert.ok(page.includes('<PauseSection paused={paused}/>'));
-assert.ok(placeSection.includes('Acá, hasta los motores'));
+assert.ok(!placeSection.includes('Acá, hasta los motores'));
 assert.ok(page.includes('Imagen generada · referencia temporal'));
 assert.ok(css.includes('prefers-reduced-motion:reduce'));
 assert.ok(page.includes('aria-label="Fotografía anterior"'));

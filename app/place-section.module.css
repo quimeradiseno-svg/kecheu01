@@ -15,6 +15,7 @@
 }
 
 .canvas {
+  --place-photo-height: min(69svh, 680px);
   position: absolute;
   inset: 0 auto 0 0;
   display: flex;
@@ -74,16 +75,16 @@
 
 .entryPhoto {
   width: 64vw;
-  height: min(69svh, 680px);
+  height: var(--place-photo-height);
 }
 
 .riverMoment {
   display: grid;
-  grid-template-columns: 24vw 39vw;
-  gap: 8vw;
-  width: 82vw;
+  grid-template-columns: 22vw 52vw;
+  gap: 6vw;
+  width: 88vw;
   align-items: center;
-  padding-left: 7vw;
+  padding-left: 6vw;
 }
 
 .distanceText,
@@ -96,78 +97,72 @@
 }
 
 .riverPhoto {
-  width: 39vw;
-  height: min(62svh, 610px);
+  width: 52vw;
+  height: var(--place-photo-height);
 }
 
 .pairMoment {
-  width: 92vw;
+  display: flex;
+  width: 76vw;
+  align-items: center;
+  gap: 5vw;
+  padding: 0 6vw;
 }
 
 .forestPhoto {
-  position: absolute;
-  top: 0;
-  left: 8vw;
   width: 27vw;
-  height: min(56svh, 550px);
+  height: var(--place-photo-height);
 }
 
 .streamPhoto {
-  position: absolute;
-  right: 8vw;
-  bottom: 0;
-  width: 38vw;
-  height: min(43svh, 425px);
+  width: 32vw;
+  height: var(--place-photo-height);
 }
 
 .lakeMoment {
   display: grid;
-  grid-template-columns: 28vw 78vw;
-  gap: 7vw;
-  width: 120vw;
+  grid-template-columns: 20vw 70vw;
+  gap: 6vw;
+  width: 106vw;
   align-items: center;
-  padding-left: 6vw;
+  padding-left: 5vw;
 }
 
 .lakeCopy {
-  display: flex;
-  height: min(64svh, 630px);
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 5vh 0;
+  display: block;
 }
 
 .lakePhoto {
-  width: 78vw;
-  height: min(72svh, 710px);
+  width: 70vw;
+  height: var(--place-photo-height);
 }
 
 .mountainMoment {
   display: grid;
-  grid-template-columns: 25vw 62vw;
-  gap: 7vw;
-  width: 103vw;
+  grid-template-columns: 20vw 60vw;
+  gap: 6vw;
+  width: 94vw;
   align-items: center;
-  padding-left: 8vw;
+  padding-left: 6vw;
 }
 
 .mountainPhoto {
-  width: 62vw;
-  height: min(58svh, 570px);
+  width: 60vw;
+  height: var(--place-photo-height);
 }
 
 .finalMoment {
   display: grid;
-  grid-template-columns: 48vw 34vw;
-  gap: 8vw;
+  grid-template-columns: 60vw 30vw;
+  gap: 6vw;
   width: 108vw;
   align-items: center;
-  padding: 0 12vw 0 6vw;
+  padding: 0 7vw 0 5vw;
 }
 
 .cabinPhoto {
-  width: 48vw;
-  height: min(72svh, 710px);
+  width: 60vw;
+  height: var(--place-photo-height);
 }
 
 .cabinPhoto img {
@@ -236,6 +231,7 @@
   }
 
   .canvas {
+    --place-photo-height: 55svh;
     position: relative;
     display: block;
     width: auto;
@@ -263,7 +259,7 @@
 
   .entryPhoto {
     width: calc(100% + 24px);
-    height: 55svh;
+    height: var(--place-photo-height);
     margin: 48px -24px 0 0 !important;
   }
 
@@ -282,27 +278,25 @@
   }
 
   .riverPhoto {
-    width: 82%;
-    height: 56svh;
-    margin: 38px 0 0 auto !important;
+    width: 100%;
+    height: var(--place-photo-height);
+    margin: 38px 0 0 !important;
   }
 
   .pairMoment {
-    min-height: 760px !important;
+    display: block;
+    min-height: 0 !important;
   }
 
   .forestPhoto {
-    top: 0;
-    left: 0;
-    width: 62%;
-    height: 420px;
+    width: 100%;
+    height: var(--place-photo-height);
   }
 
   .streamPhoto {
-    right: 0;
-    bottom: 0;
-    width: 72%;
-    height: 330px;
+    width: 100%;
+    height: var(--place-photo-height);
+    margin-top: 28px !important;
   }
 
   .lakeCopy {
@@ -310,13 +304,10 @@
     padding: 0;
   }
 
-  .lakeCopy p + p {
-    margin: 58px 0 35px 16%;
-  }
-
   .lakePhoto {
     width: calc(100% + 48px);
-    height: 49svh;
+    height: var(--place-photo-height);
+    margin-top: 38px !important;
     margin-left: -24px !important;
   }
 
@@ -325,8 +316,8 @@
   }
 
   .mountainPhoto {
-    width: 92%;
-    height: 44svh;
+    width: 100%;
+    height: var(--place-photo-height);
   }
 
   .finalMoment {
@@ -335,7 +326,7 @@
 
   .cabinPhoto {
     width: calc(100% + 48px);
-    height: 68svh;
+    height: var(--place-photo-height);
     margin: 0 -24px 55px !important;
   }
 

@@ -125,7 +125,6 @@ export function PlaceSection({ paused }: { paused: boolean }) {
         <article className={styles.lakeMoment}>
           <div className={styles.lakeCopy}>
             <p>A 3 km,<br/><em>el lago.</em></p>
-            <p>Acá, hasta los motores<br/><em>se quedan afuera.</em></p>
           </div>
           <LandscapePhoto
             name="place-lake-wide"
