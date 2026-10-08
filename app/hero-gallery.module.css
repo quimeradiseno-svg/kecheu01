@@ -1,0 +1,14 @@
+.gallery { position: absolute; inset: 0; }
+.images { position: absolute; inset: 0; z-index: -3; }
+.image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: var(--position); transform: scale(1.025); opacity: 0; transition: opacity 1400ms ease-in-out; }
+.image[data-active='true'] { opacity: 1; }
+.controls { position: absolute; right: 2.5vw; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; align-items: center; z-index: 3; }
+.line, .pause { width: 52px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #fffdf0; cursor: pointer; }
+.line span { height: 3px; width: 18px; border-radius: 2px; background: currentColor; opacity: .85; box-shadow: 0 0 0 1px #14251d55, 0 2px 8px #14251db3; transition: width 350ms ease, opacity 350ms ease; }
+.line[aria-pressed='true'] span, .line:hover span { width: 28px; opacity: 1; }
+.pause { opacity: .9; filter: drop-shadow(0 1px 3px #14251d); }
+.pause svg { width: 16px; height: 16px; }
+.pause:hover { opacity: 1; }
+.line:focus-visible, .pause:focus-visible { outline: 1px solid currentColor; outline-offset: -4px; }
+@media(max-width: 760px) { .image { object-position: var(--mobile-position); } .controls { right: 8px; } }
+@media(prefers-reduced-motion: reduce) { .image { transition: none; transform: none; } }

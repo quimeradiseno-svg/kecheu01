@@ -1,0 +1,19 @@
+.word { display: inline-block; }
+.sequence[data-animate='true'] .word,
+.sequence[data-animate='true'] .note {
+  transition: opacity 1100ms ease, transform 1400ms cubic-bezier(.22, 1, .36, 1);
+}
+.sequence[data-animate='true'] > :not([data-visible='true']) .word {
+  opacity: 0;
+  transform: translateY(48px);
+}
+.sequence[data-animate='true'] .note:not([data-visible='true']) {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.sequence > [data-visible='true']:nth-child(2) .word { transition-delay: 120ms; }
+.sequence > [data-visible='true']:nth-child(3) .word { transition-delay: 240ms; }
+.sequence .note[data-visible='true'] { transition-delay: 300ms; }
+@media (prefers-reduced-motion: reduce) {
+  .word, .note { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

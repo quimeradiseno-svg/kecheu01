@@ -17,8 +17,12 @@ export const cabins = [
     {name:'cabin-one',alt:'Cabaña 01: living soleado, ventanales y escalera de madera',caption:'El living, abierto al paisaje.'},
     {name:'new-living',alt:'Cabaña 01: rincón del living con sillón, banderines y luz sobre los ventanales',caption:'La luz de la tarde en el living de la cabaña 01.'},
     {name:'cabin-one-kitchen',alt:'Cabaña 01: cocina, comedor y escalera artesanal',caption:'Cocina y comedor completos.'},
+    {name:'cabin-one-cooking',alt:'Cabaña 01: cocina con ventana al paisaje y botellas de colores',caption:'La cocina también mira hacia afuera.'},
+    {name:'cabin-one-entry',alt:'Cabaña 01: puerta de entrada y escalera artesanal de madera',caption:'Barro y madera, desde la entrada.'},
     {name:'cabin-one-bedroom',alt:'Cabaña 01: dormitorio principal en el entrepiso',caption:'El dormitorio balconea al living.'},
+    {name:'cabin-one-stove',alt:'Cabaña 01: estufa junto a plantas y paredes de barro',caption:'Un rincón para los días frescos.'},
     {name:'cabin-one-light',alt:'Cabaña 01: luz atravesando vidrios de colores en el barro',caption:'La luz también habita la pared.'},
+    {name:'cabin-one-view',alt:'Cabaña 01: vista del valle desde la ventana de la cocina',caption:'El valle, desde adentro.'},
     {name:'new-exterior',alt:'Frente compartido de las dos cabañas para cuatro, con dos accesos independientes',caption:'Exterior compartido por las cabañas 01 y 02. Dos unidades construidas en espejo.'}
   ]},
   { number:'02', title:'Del otro lado, otro ritmo.', label:'Cabaña 02', capacity:'4 personas', description:'Al lado de la primera, construida en espejo. La misma forma de habitar, con sus propios rincones.', cover:'cabin-two', images:[
@@ -26,12 +30,20 @@ export const cabins = [
     {name:'cabin-two-living',alt:'Cabaña 02: mesa y living junto al ventanal',caption:'El comedor, la cocina y el living.'},
     {name:'cabin-two-window',alt:'Cabaña 02: rincón para descansar frente a la montaña',caption:'Un rincón junto a la ventana.'},
     {name:'cabin-two-stairs',alt:'Cabaña 02: detalle de los escalones artesanales',caption:'Cada detalle, hecho a mano.'},
+    {name:'cabin-two-from-above',alt:'Cabaña 02: el living visto desde arriba, junto al ventanal',caption:'Otra mirada sobre el living.'},
+    {name:'cabin-two-kitchen-view',alt:'Cabaña 02: vista desde la cocina hacia el comedor y el living',caption:'Cocinar, compartir y mirar afuera.'},
+    {name:'cabin-two-fire',alt:'Cabaña 02: estufa en un rincón de barro iluminado por una ventana circular',caption:'El calor y la luz.'},
+    {name:'cabin-two-flower',alt:'Cabaña 02: detalle de la ventana circular en forma de flor',caption:'Una flor en la pared.'},
     {name:'new-exterior',alt:'Frente compartido de las dos cabañas para cuatro, con dos accesos independientes',caption:'Exterior compartido por las cabañas 01 y 02. Dos unidades construidas en espejo.'}
   ]},
   { number:'03', title:'Un pequeño refugio.', label:'Cabaña para dos', capacity:'2 personas', description:'Más pequeña, más íntima. Una ventana en flor y lo necesario para quedarse un rato más.', cover:'cabin-small', images:[
     {name:'cabin-small',alt:'Exterior de la cabaña para dos, con madera y ventana en forma de flor',caption:'La más pequeña de las tres.'},
     {name:'cabin-small-inside',alt:'Interior de la cabaña para dos: cama, madera y vidrios de colores',caption:'Un interior de barro, madera y color.'},
+    {name:'cabin-small-living',alt:'Cabaña para dos: vista del interior con mesa de madera y ventanal',caption:'Lo necesario, al alcance de la mano.'},
+    {name:'cabin-small-door',alt:'Cabaña para dos: puerta y detalles de madera y vidrios de colores',caption:'Madera y luz de colores.'},
     {name:'cabin-small-window',alt:'Mesa junto a la ventana flor de la cabaña para dos',caption:'Un lugar para el mate, o para nada.'},
-    {name:'cabin-small-bath',alt:'Bacha de cerámica y espejo artesanal de la cabaña para dos',caption:'Los detalles también se habitan.'}
+    {name:'cabin-small-table',alt:'Cabaña para dos: detalle de una mesa decorada con mosaicos de colores',caption:'La mesa, también hecha a mano.'},
+    {name:'cabin-small-bath',alt:'Bacha de cerámica y espejo artesanal de la cabaña para dos',caption:'Los detalles también se habitan.'},
+    {name:'cabin-small-outside',alt:'Cabaña para dos: exterior de barro rodeado de vegetación y flores',caption:'El refugio, desde afuera.'}
   ]}
 ];

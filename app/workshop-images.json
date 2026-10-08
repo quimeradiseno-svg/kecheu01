@@ -1,0 +1,44 @@
+{
+  "piece": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750,
+    "source": "IMG_1152.JPEG"
+  },
+  "door": {
+    "width": 511,
+    "height": 861,
+    "smallWidth": 511,
+    "source": "Screenshot 2026-09-07 at 22-41-19 Instagram.png"
+  },
+  "room": {
+    "width": 2000,
+    "height": 1500,
+    "smallWidth": 760,
+    "source": "IMG_4646.JPEG"
+  },
+  "window": {
+    "width": 1125,
+    "height": 2000,
+    "smallWidth": 562,
+    "source": "IMG_4881.JPEG"
+  },
+  "hands": {
+    "width": 509,
+    "height": 861,
+    "smallWidth": 509,
+    "source": "Screenshot 2026-09-07 at 22-39-44 Instagram.png"
+  },
+  "child": {
+    "width": 1500,
+    "height": 2000,
+    "smallWidth": 750,
+    "source": "IMG_4905.JPEG"
+  },
+  "shared": {
+    "width": 726,
+    "height": 907,
+    "smallWidth": 726,
+    "source": "Screenshot 2026-09-07 at 22-37-29 Instagram.png"
+  }
+}

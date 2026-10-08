@@ -246,5 +246,85 @@
     "name": "new-mountains",
     "source": "fotos kecheu/nueva/IMG_4291.JPEG",
     "generated": false
+  },
+  {
+    "name": "build-step-01",
+    "source": "fotos kecheu/construccion/01.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-02",
+    "source": "fotos kecheu/construccion/02.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-03",
+    "source": "fotos kecheu/construccion/03.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-04",
+    "source": "fotos kecheu/construccion/04.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-05",
+    "source": "fotos kecheu/construccion/05.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-06",
+    "source": "fotos kecheu/construccion/06.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-07",
+    "source": "fotos kecheu/construccion/07.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-08",
+    "source": "fotos kecheu/construccion/08.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-09",
+    "source": "fotos kecheu/construccion/09.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-10",
+    "source": "fotos kecheu/construccion/10.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-11",
+    "source": "fotos kecheu/construccion/11.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-12",
+    "source": "fotos kecheu/construccion/12.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-13",
+    "source": "fotos kecheu/construccion/13.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-14",
+    "source": "fotos kecheu/construccion/14.jpg",
+    "generated": false
+  },
+  {
+    "name": "build-step-15",
+    "source": "fotos kecheu/construccion/15.JPEG",
+    "generated": false
+  },
+  {
+    "name": "build-step-16",
+    "source": "fotos kecheu/construccion/16.JPEG",
+    "generated": false
   }
 ]

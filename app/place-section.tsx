@@ -127,8 +127,8 @@ export function PlaceSection({ paused }: { paused: boolean }) {
             <p>A 3 km,<br/><em>el lago.</em></p>
           </div>
           <LandscapePhoto
-            name="place-lake-wide"
-            alt="El Lago Epuyén abierto entre las montañas y el bosque"
+            name="place-lake-october"
+            alt="Agua azul del Lago Epuyén, con la costa arbolada y las montañas al fondo"
             className={styles.lakePhoto}
           />
         </article>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowDown, ArrowUpRight, ArrowLeft, ArrowRight, Plus, Menu, X, Pause, Play, Check, Copy } from 'lucide-react';
+import { ArrowDown, ArrowUp, ArrowUpRight, ArrowLeft, ArrowRight, Plus, Menu, X, Pause, Play, Check, Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTitle, DialogDescription, DialogClose } from '@/components/ui/dialog';
 import { Carousel, CarouselContent, CarouselItem, useCarousel, type CarouselApi } from '@/components/ui/carousel';
@@ -11,6 +11,13 @@ import { PauseSection } from './pause-section';
 import { HouseStory } from './house-story';
 import { PlaceSection } from './place-section';
 import { ManifestoSection } from './manifesto-section';
+import { ConstructionSequence } from './construction-sequence';
+import { WorkshopSection } from './workshop-section';
+import { MaterialWords } from './material-words';
+import closingVideoStyles from './closing-video.module.css';
+import { HeroGallery } from './hero-gallery';
+import { CabinLightbox } from './cabin-lightbox';
+import { FamilyAlbum } from './family-album';
 
 const nav = [['historia','Historia'],['cabanas','Cabañas'],['taller','Taller'],['lugar','El lugar']];
 const message = 'Hola, nos gustaría conocer Kecheu. ¿Podemos conversar sobre las cabañas y el taller de cerámica?';
@@ -125,50 +132,35 @@ export default function Home() {
       <div className="header-actions"><a className="nav-contact" href="#contacto">Contacto <ArrowUpRight size={16}/></a><Button variant="ghost" className="menu-toggle" onClick={()=>setMenuOpen(true)} aria-label="Abrir menú"><Menu/></Button></div>
     </header>
     <section className="hero" id="llegar" data-scene>
-      <PhotoFrame photo={photos.hero} priority className="hero-image-frame"/><div className="hero-shade"/>
-      <div className="hero-top"><span>KECHEU<br/>EPUYÉN · PATAGONIA</span></div>
-      <div className="hero-copy"><h1>Hecho para<br/><em>habitar.</em></h1></div>
+      <HeroGallery paused={paused}/><div className="hero-shade"/>
+      <div className="hero-copy"><p className="hero-location">EPUYÉN, CHUBUT — PATAGONIA ARGENTINA</p><h1><span>Hecho para</span><br/><em>habitar.</em></h1></div>
       <div className="hero-bottom"><a href="#historia" className="scroll-cue">Descubrir <ArrowDown size={16}/></a><p>Barro · madera · arcilla · montaña</p></div>
     </section>
 
     <section className="intro section-pad" id="historia">
       <div className="section-heading reveal"><p className="eyebrow">01 / EL COMIENZO</p><span className="small-note">No empezó con un plano de negocio.<br/>Empezó con las manos.</span></div>
       <div className="origin-documentary">
-        <div className="origin-copy reveal"><h2>Antes de ser un lugar para quedarse,<br/><em>fue un sueño.</em></h2><p className="body-copy">Daniel y Laura empezaron por las cabañas.</p><p className="body-copy">Las construyeron con sus propias manos utilizando barro, madera y técnicas de construcción natural.</p><p className="body-copy">No buscaban imponer una arquitectura sobre el paisaje, sino aprender a construir dentro de él.</p><span className="handwritten">Y acá estamos.</span></div>
-        <div className="origin-document reveal"><PhotoFrame photo={{name:'construction',alt:'Archivo de Kecheu: manos trabajando en una pared de barro'}} className="origin-main" still/><p className="photo-footnote">ARCHIVO KECHEU / EL BARRO GUARDA LA HUELLA.</p></div>
+        <div className="origin-copy reveal"><h2>Antes de ser un lugar para quedarse,<br/><em>fue un sueño.</em></h2><div className="editorial-copy"><p className="editorial-lead">Daniel y Laura empezaron por <em>las cabañas.</em></p><p className="editorial-support">Las construyeron con sus propias manos utilizando <em>barro, madera</em> y técnicas de construcción natural.</p><p className="editorial-support">No buscaban imponer una arquitectura sobre el paisaje, sino <em>aprender a construir dentro de él.</em></p></div><span className="handwritten">Y acá estamos.</span></div>
+        <div className="origin-document reveal"><ConstructionSequence paused={paused}/><p className="photo-footnote">ARCHIVO KECHEU / EL BARRO GUARDA LA HUELLA.</p></div>
       </div>
     </section>
-    <section className="material-sequence" aria-label="Nuestros materiales"><p className="material-word reveal">Tierra.</p><p className="material-word reveal">Madera.</p><p className="material-word reveal">Tiempo.</p><span className="eyebrow reveal">LO ESENCIAL YA ESTABA ACÁ.</span></section>
+    <MaterialWords paused={paused}/>
 
     <section className="cabins-section section-pad" id="cabanas">
       <div className="section-heading reveal"><p className="eyebrow">02 / UN LUGAR PARA DESCANSAR</p><span className="small-note">Tres cabañas de construcción natural.</span></div>
-      <div className="cabins-intro reveal"><h2>Hay muchas formas<br/>de <em>quedarse.</em></h2><div><p>Dos cabañas para cuatro, una al lado de la otra, construidas en espejo. Desde afuera parecen una sola; adentro, cada una tiene su propio espacio.</p><p>Y una tercera, más pequeña, para dos.</p></div></div>
+      <div className="cabins-intro reveal"><h2>Hay muchas formas<br/>de <em>quedarse.</em></h2><div className="editorial-copy cabins-editorial"><p className="editorial-lead">Dos cabañas para cuatro, una al lado de la otra, <em>construidas en espejo.</em></p><p className="editorial-support">Desde afuera parecen una sola; adentro, cada una tiene su propio espacio.</p><p className="editorial-support editorial-closing">Y una tercera, <em>más pequeña, para dos.</em></p></div></div>
       <div className="cabin-scenes">{cabins.map((c,i)=><article className={'cabin-scene cabin-scene-'+i} key={c.number}>
         <Button variant="ghost" className="cabin-image-button reveal" onClick={()=>setSelectedCabin(i)} aria-label={'Ver fotografías de '+c.label}><PhotoFrame photo={{name:c.cover,alt:c.images[0].alt}} still/><span className="image-explore">Entrar <Plus size={17}/></span></Button>
         <div className="cabin-story reveal"><div className="cabin-meta"><span>{c.number} — {i===2?'Para dos':'Para cuatro'}</span></div><h3>{c.title}</h3><p>{i===2?'Más pequeña. Más recogida. Todo el valle alrededor.':c.description}</p><Button variant="link" className="text-link" onClick={()=>setSelectedCabin(i)}>Recorrer la cabaña <ArrowUpRight size={17}/></Button></div>
       </article>)}</div>
-      <div className="cabins-bottom"><span>Completamente equipadas. Cocina y baño completos.</span><span>El descanso no necesita mucho más.</span></div>
     </section>
 
     <HouseStory paused={paused}/>
-    <section className="family-section section-pad">
-      <div className="family-album"><PhotoFrame photo={{name:'family',alt:'Retrato de la familia de Kecheu: dos adultos y sus dos hijos'}} className="family-photo reveal" still/></div>
-      <div className="family-copy reveal"><p className="eyebrow">EL PROYECTO TAMBIÉN ES LA VIDA</p><h2>No sólo lo<br/>construimos.<br/><em>Lo habitamos.</em></h2><p className="body-copy">Después de construir las cabañas, Daniel y Laura levantaron su propia casa-taller en el mismo lugar y se mudaron allí con sus hijos.</p><p className="body-copy">Lo que había comenzado como un proyecto terminó convirtiéndose en una forma de vivir.</p><p className="body-copy">La casa, el taller, la huerta, el estanque. Los chicos creciendo, el pan sobre la mesa.</p><Button variant="link" className="text-link archive-link" onClick={()=>setArchiveOpen(true)}>Recorrer el archivo familiar <ArrowUpRight size={18}/></Button></div>
-    </section>
+    <FamilyAlbum paused={paused}/>
 
-    <section className="workshop-section section-pad" id="taller">
-      <div className="section-heading reveal"><p className="eyebrow">04 / ARCILLA PARA CREAR</p><span className="small-note">El taller de Laura.</span></div>
-      <h2 className="workshop-title reveal">En esta casa,<br/>el barro <em>cambia de escala.</em></h2>
-      <p className="same-clay reveal">El mismo barro.</p>
-      <div className="clay-sequence">
-        <article className="clay-chapter clay-wall reveal"><PhotoFrame photo={{name:'wall',alt:'Barro modelado en la pared, alrededor de vidrios de colores'}}/><h3>Fue pared.</h3></article>
-        <article className="clay-chapter clay-hands reveal"><PhotoFrame photo={photos.hands} still/><h3>Entró en<br/><em>sus manos.</em></h3><p className="photo-footnote">UNA PIEZA ENTRE LAS MANOS. ARCHIVO DEL TALLER.</p></article>
-        <article className="clay-chapter clay-object reveal"><PhotoFrame photo={photos.clay} still/><h3>Arcilla para <em>crear.</em></h3><p className="photo-footnote">EL BARRO SE CONVIRTIÓ EN OBJETO.</p></article>
-      </div>
-      <div className="workshop-close"><p className="body-copy reveal">Laura trabaja la cerámica en su taller. Sus piezas también aparecen en los detalles de la casa: una bacha, una luz, una pequeña forma en la pared.</p><div className="reveal"><p className="body-copy">Si te dan ganas de probar, también podés tomar clases de cerámica.</p><Button variant="link" className="text-link" onClick={openContact}>Preguntar por el taller <ArrowUpRight size={18}/></Button></div></div>
-    </section>
+    <WorkshopSection onContact={openContact}/>
 
-    <section className="life-section section-pad"><div className="life-title reveal"><p className="eyebrow">05 / LA VIDA ENTRE MEDIO</p><h2>Lo que crece.<br/><em>Lo que compartimos.</em></h2></div><div className="life-grid"><div className="life-garden reveal"><PhotoFrame photo={{name:'garden',alt:'Trabajo cotidiano en la huerta de Kecheu'}}/><p>Cultivar.</p></div><div className="life-pond reveal"><PhotoFrame photo={{name:'house-pond',alt:'El estanque junto a la casa familiar, entre la vegetación'}}/><p>Cuidar.</p></div><div className="life-landscape reveal"><PhotoFrame photo={{name:'new-mountains',alt:'Montañas nevadas y vegetación vistas desde Kecheu'}}/><p>Compartir.</p></div></div></section>
+    <section className="life-section section-pad"><div className="life-title reveal"><p className="eyebrow">05 / LA VIDA ENTRE MEDIO</p><h2>Lo que crece.<br/><em>Lo que nos rodea.</em></h2></div><div className="life-grid"><div className="life-garden reveal"><PhotoFrame photo={{name:'garden',alt:'Trabajo cotidiano en la huerta de Kecheu'}}/><p>Cultivar.</p></div><div className="life-pond reveal"><PhotoFrame photo={{name:'house-pond',alt:'El estanque junto a la casa familiar, entre la vegetación'}}/><p>Cuidar.</p></div><div className="life-landscape reveal"><p className="life-surrounding-copy">La huerta, el estanque y las montañas forman parte de nuestros días. Más allá del predio, el río y el lago abren otras maneras de conocer Epuyén.</p><PhotoFrame photo={{name:'new-mountains',alt:'Montañas nevadas y vegetación vistas desde Kecheu'}}/><p>Compartir.</p></div></div></section>
 
     <PauseSection paused={paused}/>
 
@@ -176,10 +168,21 @@ export default function Home() {
 
     <ManifestoSection/>
 
-    <footer className="site-footer dark" id="contacto"><div className="footer-top"><div><p className="eyebrow">07 / LA CONVERSACIÓN SIGUE</p><h2>¿Venís a<br/><em>conocerlo?</em></h2></div><div className="footer-invite"><p>Escribinos y contanos cuándo te gustaría venir a Epuyén.</p><Button className="contact-button" onClick={openContact}>Escribinos por WhatsApp <ArrowRight size={24}/></Button>{!contact.whatsappNumber&&<span className="preview-note">Vista previa · WhatsApp pendiente de conectar</span>}</div></div><div className="footer-bottom"><a href="#llegar" className="wordmark">kecheu<span>EPUYÉN · PATAGONIA</span></a><div className="footer-socials">{contact.instagramUrl?<a href={contact.instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>:<span>Instagram · próximamente</span>}{contact.airbnbUrl?<a href={contact.airbnbUrl} target="_blank" rel="noreferrer">Airbnb ↗</a>:<span>Airbnb · próximamente</span>}<a href={contact.mapUrl} target="_blank" rel="noreferrer">Cómo llegar · Epuyén ↗</a></div><Button variant="ghost" className="motion-toggle" onClick={()=>setPaused(p=>!p)} aria-pressed={paused}>{paused?<Play size={13}/>:<Pause size={13}/>} {paused?'Activar movimiento':'Pausar movimiento'}</Button></div><div className="footer-fine"><span>Hecho a mano. Hecho para habitar.</span><span>Barro · madera · arcilla · montaña</span></div></footer>
+    <footer className="site-footer dark" id="contacto">
+      <div className={'footer-top '+closingVideoStyles.composition}>
+        <div className={closingVideoStyles.heading}><p className="eyebrow">07 / LA CONVERSACIÓN SIGUE</p><h2>¿Venís a<br/><em>conocerlo?</em></h2></div>
+        <video className={closingVideoStyles.film} controls playsInline preload="none" poster="/media/kecheu-poster.jpg" aria-label="Conocé Kecheu: recorrido por las cabañas y sus espacios">
+          <source src="/media/kecheu-web.mp4" type="video/mp4"/>
+          Tu navegador no permite reproducir este video.
+        </video>
+        <div className={'footer-invite '+closingVideoStyles.invitation}><p>Escribinos y contanos cuándo te gustaría venir a Epuyén.</p><Button className="contact-button" onClick={openContact}>Escribinos por WhatsApp <ArrowRight size={24}/></Button>{!contact.whatsappNumber&&<span className="preview-note">Vista previa · WhatsApp pendiente de conectar</span>}</div>
+      </div>
+      <div className="footer-bottom"><a href="#llegar" className="wordmark">kecheu<span>EPUYÉN · PATAGONIA</span></a><div className="footer-socials">{contact.instagramUrl?<a href={contact.instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a>:<span>Instagram · próximamente</span>}{contact.airbnbUrl?<a href={contact.airbnbUrl} target="_blank" rel="noreferrer">Airbnb ↗</a>:<span>Airbnb · próximamente</span>}<a href={contact.mapUrl} target="_blank" rel="noreferrer">Cómo llegar · Epuyén ↗</a></div><Button variant="ghost" className="motion-toggle" onClick={()=>setPaused(p=>!p)} aria-pressed={paused}>{paused?<Play size={13}/>:<Pause size={13}/>} {paused?'Activar movimiento':'Pausar movimiento'}</Button></div><div className="footer-fine"><span>Hecho a mano. Hecho para habitar.</span><span>Barro · madera · arcilla · montaña</span></div>
+      <a className={closingVideoStyles.backToTop} href="#llegar" onClick={(event)=>{event.preventDefault();window.scrollTo({top:0,behavior:paused||window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});window.history.replaceState(null,'','#llegar');}} aria-label="Volver al inicio del sitio"><span>Volver al inicio</span><ArrowUp size={20} aria-hidden="true"/></a>
+    </footer>
 
     <Dialog open={menuOpen} onOpenChange={setMenuOpen}><DialogContent className="mobile-menu" showCloseButton={false}><DialogTitle>Kecheu</DialogTitle><DialogDescription>Un recorrido por nuestra historia.</DialogDescription><DialogClose render={<Button variant="ghost" className="menu-close" aria-label="Cerrar menú"/>}><X/></DialogClose><nav aria-label="Menú móvil">{[...nav,['contacto','Contacto']].map(([id,label])=><a key={id} href={'#'+id} onClick={()=>setMenuOpen(false)}>{label}<ArrowUpRight/></a>)}</nav></DialogContent></Dialog>
-    <Dialog open={selectedCabin!==null} onOpenChange={open=>{if(!open)setSelectedCabin(null);}}><DialogContent className="gallery-dialog" showCloseButton={false}><DialogClose render={<Button variant="ghost" className="gallery-close" aria-label="Cerrar galería"/>}><X/></DialogClose>{selectedCabin!==null&&<CabinGallery key={selectedCabin} cabin={cabins[selectedCabin]} onClose={()=>setSelectedCabin(null)}/>}</DialogContent></Dialog>
+    <Dialog open={selectedCabin!==null} onOpenChange={open=>{if(!open)setSelectedCabin(null);}}>{selectedCabin!==null&&<CabinLightbox key={selectedCabin} cabin={cabins[selectedCabin]} onClose={()=>setSelectedCabin(null)}/>}</Dialog>
     <Dialog open={archiveOpen} onOpenChange={setArchiveOpen}><DialogContent className="gallery-dialog" showCloseButton={false}><DialogClose render={<Button variant="ghost" className="gallery-close" aria-label="Cerrar archivo fotográfico"/>}><X/></DialogClose><CabinGallery cabin={storyArchive} archive onClose={()=>setArchiveOpen(false)}/></DialogContent></Dialog>
     <Dialog open={contactOpen} onOpenChange={setContactOpen}><DialogContent className="contact-dialog" showCloseButton={false}><DialogClose render={<Button variant="ghost" className="gallery-close" aria-label="Cerrar contacto"/>}><X/></DialogClose><DialogTitle>La conversación, muy pronto.</DialogTitle><DialogDescription>Esta es una vista previa. Falta incorporar el número de WhatsApp de Kecheu; todavía no se envían consultas desde acá.</DialogDescription><p>Podés copiar este mensaje para guardarlo:</p><textarea ref={copyRef} readOnly value={message} aria-label="Mensaje de consulta para copiar"/><Button onClick={copyMessage} className="copy-button">{copied?<Check size={17}/>:<Copy size={17}/>} {copied?'Mensaje copiado':'Copiar consulta'}</Button><p aria-live="polite" className="small-note">{copied?'El texto está en tu portapapeles. No se envió ningún mensaje.':'No se envía ningún mensaje ni se guardan datos.'}</p></DialogContent></Dialog>
   </main>;
